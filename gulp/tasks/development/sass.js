@@ -17,7 +17,7 @@ gulp.task('sass', function(){
   
   // Don't write sourcemaps of sourcemaps
   var filter = gulpFilter(['*.css','!*.map'], {restore:true});
-  browsersync.notify('Compiler Sass');
+  browsersync.notify('Compiling Sass');
 
   return sass(config.sass.src,sassConfig)
     .pipe(plumber())
@@ -27,4 +27,4 @@ gulp.task('sass', function(){
     .pipe(sourcemaps.write('.', {includeContent:false, sourceRoot: 'app/_assets/scss'}))
     .pipe(filter.restore) // Restore original files
     .pipe(gulp.dest(config.sass.dest));
-}):
+});
